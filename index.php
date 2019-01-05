@@ -8,7 +8,7 @@ if(isset($_POST['state'])){
     $green=$_POST['green'];
     $data = array();
     $response=array();
-    array_push($dataPoints,array("state" => $state, "intensity" => $intensity,"red"=>$red,"blue"=>$blue,"green"=>$green)); 
+    array_push($data,array("state" => $state, "intensity" => $intensity,"red"=>$red,"blue"=>$blue,"green"=>$green)); 
     fwrite($myfile, json_encode($data));
     fclose($myfile);
     array_push($response,array("success" => "yes")); 
