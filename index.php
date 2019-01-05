@@ -1,10 +1,18 @@
 <?php
 if(isset($_POST['state'])){
     $myfile = fopen("data.txt", "w") or die("error");
-    $data=$_POST['state'];
-    fwrite($myfile, $data);
+    $state=$_POST['state'];
+    $intensity=$_POST['intensity'];
+    $red=$_POST['red'];
+    $blue=$_POST['blue'];
+    $green=$_POST['green'];
+    $data = array();
+    $response=array();
+    array_push($dataPoints,array("state" => $state, "intensity" => $intensity,"red"=>$red,"blue"=>$blue,"green"=>$green)); 
+    fwrite($myfile, json_encode($data));
     fclose($myfile);
-    echo "success";
+    array_push($response,array("success" => "yes")); 
+    echo json_encode($response);
  
 }
 
